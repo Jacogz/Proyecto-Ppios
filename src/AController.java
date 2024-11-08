@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.ArrayList;
 public class AController {
     private HashMap<Integer, Articulo> articulos = new HashMap<>();
 
@@ -30,13 +31,25 @@ public class AController {
 
     public HashMap<Integer, Articulo> consultarCategoria(String categoria){
         HashMap<Integer, Articulo> resultados = new HashMap<>();
-        articulos.forEach((id, art)->{if(art.getCategoria() == categoria){resultados.put(art.getId(), art);}});
+        articulos.forEach((id, art)->{if(art.getCategoria().equals(categoria)){resultados.put(art.getId(), art);}});
         return resultados;
     }
 
     public HashMap<Integer, Articulo> consultarDisponibles(){
         HashMap<Integer, Articulo> resultados = new HashMap<>();
         articulos.forEach((id, art)->{if(art.getDisponibles()>0){resultados.put(art.getId(), art);}});
+        return resultados;
+    }
+
+    public HashMap<Integer, Articulo> consultarPorEncargado(int idEncargado){
+        HashMap<Integer, Articulo> resultados = new HashMap<>();
+        articulos.forEach((id, art)->{if(art.getEncargado()==idEncargado){resultados.put(art.getId(), art);}});
+        return resultados;
+    }
+
+    public HashMap<Integer, Articulo> consultarEnLista(ArrayList<Integer> ids){
+        HashMap<Integer, Articulo> resultados = new HashMap<>();
+        articulos.forEach((id, art)->{if(ids.contains(id)){resultados.put(art.getId(), art);}});
         return resultados;
     }
 }

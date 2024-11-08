@@ -19,8 +19,8 @@ public class Usuario {
         this.recientes = new ArrayList<Integer>();
     }
 
-    public boolean verificarContrasena(String contrasena){
-        if(contrasena == this.contrasena){
+    public boolean verificarContrasena(String contrasenas){
+        if(this.contrasena.equals(contrasenas)){
             return true;
         }else{
             return false;
@@ -50,5 +50,10 @@ public class Usuario {
         if(!this.recientes.contains(idArticulo)){
             this.recientes.add(idArticulo);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + idUsuario + " | " + "nombre: " + nombreCompleto + " | " + "tipo: " + tipo + "\n";
     }
 }

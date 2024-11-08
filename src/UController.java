@@ -1,4 +1,5 @@
 import java.util.HashMap;
+
 public class UController {
     private HashMap<Integer, Usuario> usuarios = new HashMap<>();
 
@@ -8,7 +9,7 @@ public class UController {
 
     public Usuario login(String correo, String contrasena){
         for(Usuario u : usuarios.values()){
-            if(u.getCorreo() == correo && u.verificarContrasena(contrasena)){
+            if(u.getCorreo().equals(correo) && u.verificarContrasena(contrasena)){
                 return u;
             }
         }

@@ -50,4 +50,8 @@ public class Articulo {
     public void retornarArticulo(int cantidad){
         this.disponibles += cantidad;
     }
+    @Override
+    public String toString() {
+        return "id: " + idArticulo + " | " + "descripcion: " + descripcion + " | " + "cantidad: " + cantidad + " | " + "disponibles: " + disponibles + "\n";
+    }
 }
